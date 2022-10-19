@@ -1,0 +1,11 @@
+Tests: python3-sphinx-tabs
+Depends: @,
+         python3-all,
+         python3-bs4,
+         python3-coverage,
+         python3-docutils (>= 0.17),
+         python3-pygments,
+         python3-pytest,
+         python3-pytest-cov,
+         python3-pytest-regressions
+Restrictions: allow-stderr

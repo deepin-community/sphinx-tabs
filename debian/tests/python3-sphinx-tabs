@@ -1,0 +1,10 @@
+#!/bin/bash
+
+python3_versions="$(py3versions -r 2> /dev/null)"
+
+cp -a "tests" "${AUTOPKGTEST_TMP}"
+cd "${AUTOPKGTEST_TMP}"
+
+for python3 in $python3_versions; do
+    $python3 -m pytest -k 'not test_rinohtype_pdf' tests || exit 1
+done

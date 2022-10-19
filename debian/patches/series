@@ -1,0 +1,3 @@
+Fix-test_other_with_assets_new_style-w-Sphinx-4.0.patch
+Add-testing-for-Python-3.9-and-pygments-versions.patch
+Bump-docutils-dependency-to-0.17.patch

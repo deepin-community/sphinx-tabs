@@ -1,0 +1,60 @@
+Source: sphinx-tabs
+Maintainer: Debian Python Team <team+python@tracker.debian.org>
+Uploaders: Pierre-Elliott Bécue <peb@debian.org>
+Section: python
+Priority: optional
+Build-Depends: debhelper-compat (= 13),
+               dh-python,
+               python3-all:any,
+               python3-bs4,
+               python3-coverage,
+               python3-docutils (>= 0.17),
+               python3-pygments,
+               python3-pytest,
+               python3-pytest-cov,
+               python3-pytest-regressions,
+               python3-setuptools,
+               python3-sphinx (>=4)
+Standards-Version: 4.5.1
+Vcs-Browser: https://salsa.debian.org/python-team/packages/sphinx-tabs
+Vcs-Git: https://salsa.debian.org/python-team/packages/sphinx-tabs.git
+Homepage: https://github.com/djungelorm/sphinx-tabs
+Rules-Requires-Root: no
+
+Package: python3-sphinx-tabs
+Architecture: all
+Depends: ${misc:Depends},
+         ${python3:Depends},
+         ${sphinxdoc:Depends}
+Suggests: python3-sphinx-tabs-doc
+Description: Tabbed views for Sphinx
+ Sphinx Tabs is a Sphinx extension that allows one to create tabbed
+ content in a Sphinx documentation built in HTML. The current features
+ are:
+   - Simple tabs
+   - Groupped tabs (synchronize the tabs between multiple areas of the
+     page)
+   - Code tabs
+ .
+ This package contains the Python3 library for sphinx-tabs
+
+Package: python3-sphinx-tabs-doc
+Section: doc
+Architecture: all
+Multi-Arch: foreign
+Depends: libjs-jquery,
+         libjs-underscore,
+         ${misc:Depends},
+         ${python3:Depends},
+         ${sphinxdoc:Depends}
+Built-Using: ${sphinxdoc:Built-Using}
+Description: Tabbed views for Sphinx - Documentation
+ Sphinx Tabs is a Sphinx extension that allows one to create tabbed
+ content in a Sphinx documentation built in HTML. The current features
+ are:
+   - Simple tabs
+   - Groupped tabs (synchronize the tabs between multiple areas of the
+     page)
+   - Code tabs
+ .
+ This package contains the documentation for sphinx-tabs
