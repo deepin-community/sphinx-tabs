@@ -4,7 +4,6 @@ Subject: TESTS: Add testing for Python 3.9 and pygments versions (#135)
 
 (cherry picked from commit ade8d9c1e79cd35187cbb48c5df8cc6b9fc5d43b)
 ---
- .github/workflows/tests.yml                        |   6 +-
  tests/conftest.py                                  |  12 +-
  tests/roots/test-conditionalassets-policy/conf.py  |   5 +
  .../roots/test-conditionalassets-policy/index.rst  | 130 +++++++++++
@@ -35,30 +34,6 @@ Subject: TESTS: Add testing for Python 3.9 and pygments versions (#135)
  create mode 100644 tests/test_build/test_conditional_assets_html_assets_policy_no_tabs2_.html
  create mode 100644 tests/test_build/test_conditional_assets_html_assets_policy_no_tabs2_.xml
 
-diff --git a/.github/workflows/tests.yml b/.github/workflows/tests.yml
-index c0767a3..b7414e8 100644
---- a/.github/workflows/tests.yml
-+++ b/.github/workflows/tests.yml
-@@ -17,8 +17,9 @@ jobs:
-     runs-on: ubuntu-latest
-     strategy:
-       matrix:
--        python-version: [3.6, 3.7, 3.8]
--        sphinx: [">=2,<3", ">=3,<4", "==4.0.0b1"]
-+        python-version: [3.6, 3.7, 3.8, 3.9]
-+        sphinx: [">=2,<3", ">=3,<4", ">=4,<5"]
-+        pygments: ["==2.8.0", "==2.9.0", "==2.10.0"]
- 
-     steps:
-     - uses: actions/checkout@v2
-@@ -30,6 +31,7 @@ jobs:
-       run: |
-         python -m pip install --upgrade pip
-         pip install "sphinx${{ matrix.sphinx }}"
-+        pip install "pygments${{ matrix.pygments }}"
-         pip install .[testing]
-     - name: Run pytest
-       run: |
 diff --git a/tests/conftest.py b/tests/conftest.py
 index aea4aa0..6c15bd4 100644
 --- a/tests/conftest.py
