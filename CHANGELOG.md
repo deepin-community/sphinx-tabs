@@ -1,5 +1,63 @@
 # Change Log
 
+## 3.4.1 - 2022-97-02
+
+### Added
+
+* Weekly scheduled testing, to catch breaking changes in unpinned dependencies
+
+### Changed
+
+*  docutils version pin to allow use of verison 0.18.x
+
+### Removed
+
+* sphinx version pinning - only the latest version of sphinx will now be fully supported, but previous versions will work if sphinx dependencies (i.e. jinja2) are managed correctly. This is inline with the approach at sphinx
+*  tests that were specific to older versions of sphinx and pygments
+*  jinja2 version pinning, as this is now pinned in latest version of sphinx
+
+
+## 3.4.0 - 2022-06-26
+
+### Added
+
+* Testing for sphinx 5
+* Tesing for python 3.10
+
+### Fixed
+
+* Fixed parsing of MyST content, where first line was being stripped
+* Typos in documentation
+* Failing regression tests
+
+### Changed
+
+* Testing to use an up-to-date pytest version
+
+### Removed
+
+* Testing for python 3.6 and sphinx versions 2 and 4 (see [#164](https://github.com/executablebooks/sphinx-tabs/pull/164)). Note that the package will likely continue to work fine with these, but this won't be assured by tests
+
+
+## 3.3.1 - 2022-03-17
+
+### Fixed
+
+* Inserting CSS at the start of the static path list, so that it can be overwritten
+* Assume light theme is the default, even when browser setting prefers dark. Necessary when most sphinx themes don't set `data-theme`.
+
+## 3.3.0 - 2022-03-09
+
+### Added
+
+* Testing for Python 3.9 and a few pygments versions
+* Dark theme selectors
+
+### Changed
+
+* Bumped docutils dependency to 0.17
+* Remaining string formatting to use f-strings
+
 ## 3.2.0 - 2021-06-11
 
 ### Fixed
@@ -46,7 +104,7 @@
 
 ## 2.0.0 - 2021-01-24
 
-♻️ Refactor to reduce JS/CSS payload size and improve accesibility:
+♻️ Refactor to reduce JS/CSS payload size and improve accessibility:
 
 * Removed semantic-ui assets
 * Removed unused 'sphinx_tabs_nowarn' sphinx option
@@ -54,7 +112,7 @@
 * Changed tab HTML to use tab roles
 * Changed tab label colour, to increase contrast with background
 * Added ARIA labels for tabs and panels
-* Added tabindex atributes to allow users to focus and switch tabs using a keyboard
+* Added tabindex attributes to allow users to focus and switch tabs using a keyboard
 * Added a margin below images inside tab content
 
 ✨ New features:
