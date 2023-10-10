@@ -1,6 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Source: https://github.com/djungelorm/sphinx-tabs
 Author: Alex Collins <alexjcollins@gmail.com>
+Upstream-Name: sphinx-tabs
 
 Files: *
 Copyright: © 2017 - 2019 Alex Collins <alexjcollins@gmail.com>

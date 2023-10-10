@@ -5,7 +5,8 @@ Depends: @,
          python3-coverage,
          python3-docutils (>= 0.17),
          python3-pygments,
-         python3-pytest,
+         python3-pytest (>= 7.1),
          python3-pytest-cov,
-         python3-pytest-regressions
+         python3-pytest-regressions,
+         python3-sphinx (>= 5)
 Restrictions: allow-stderr
