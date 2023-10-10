@@ -91,7 +91,7 @@ class TabsDirective(SphinxDirective):
             self.env.temp_data["tabs_stack"] = []
 
         tabs_id = self.env.temp_data["next_tabs_id"]
-        tabs_key = "tabs_%d" % tabs_id
+        tabs_key = f"tabs_{tabs_id}"
         self.env.temp_data["next_tabs_id"] += 1
         self.env.temp_data["tabs_stack"].append(tabs_id)
 
@@ -141,7 +141,7 @@ class TabDirective(SphinxDirective):
         self.assert_has_content()
 
         tabs_id = self.env.temp_data["tabs_stack"][-1]
-        tabs_key = "tabs_%d" % tabs_id
+        tabs_key = f"tabs_{tabs_id}"
 
         include_tabs_id_in_data_tab = False
         if self.tab_id is None:
@@ -160,13 +160,13 @@ class TabDirective(SphinxDirective):
 
         i = 1
         while tab_id in self.env.temp_data[tabs_key]["tab_ids"]:
-            tab_id = "%s-%d" % (tab_id, i)
+            tab_id = f"{tab_id}-{i}"
             i += 1
         self.env.temp_data[tabs_key]["tab_ids"].append(tab_id)
 
         data_tab = str(tab_id)
         if include_tabs_id_in_data_tab:
-            data_tab = "%d-%s" % (tabs_id, data_tab)
+            data_tab = f"{tabs_id}-{data_tab}"
 
         self.env.temp_data[tabs_key]["tab_titles"].append((data_tab, tab_name))
 
@@ -184,7 +184,7 @@ class TabDirective(SphinxDirective):
         else:
             panel["hidden"] = "true"
 
-        self.state.nested_parse(self.content[2:], self.content_offset, panel)
+        self.state.nested_parse(self.content[1:], self.content_offset, panel)
 
         if self.env.app.builder.name not in get_compatible_builders(self.env.app):
             # Use base docutils classes
@@ -194,7 +194,7 @@ class TabDirective(SphinxDirective):
             panel = nodes.container()
 
             self.state.nested_parse(self.content[0:1], 0, tab_name)
-            self.state.nested_parse(self.content[2:], self.content_offset, panel)
+            self.state.nested_parse(self.content[1:], self.content_offset, panel)
 
             tab += tab_name
             outer_node += tab
@@ -254,7 +254,7 @@ class CodeTabDirective(GroupTabDirective):
                 tab_name = LEXER_MAP[self.arguments[0]]
             except KeyError as invalid_lexer_error:
                 raise ValueError(
-                    "Lexer not implemented: {}".format(self.arguments[0])
+                    f"Lexer not implemented: {self.arguments[0]}"
                 ) from invalid_lexer_error
 
         self.tab_classes.add("code-tab")
@@ -355,7 +355,7 @@ def setup(app):
     static_dir = Path(__file__).parent / "static"
     app.connect(
         "builder-inited",
-        (lambda app: app.config.html_static_path.append(static_dir.as_posix())),
+        (lambda app: app.config.html_static_path.insert(0, static_dir.as_posix())),
     )
     app.connect("config-inited", update_config)
     app.connect("html-page-context", update_context)
