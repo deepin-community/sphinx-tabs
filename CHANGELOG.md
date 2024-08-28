@@ -1,6 +1,24 @@
 # Change Log
 
-## 3.4.1 - 2022-97-02
+## 3.4.2 - 2023-19-22
+
+### Added
+* Testing for Python 3.11 and 3.12
+
+### Removed
+* Dependency on unsupported sphinx_testing package
+
+## 3.4.2 - 2023-19-22
+
+### Fixed
+
+* tests for sphinx 7.2
+* slice assignment in update_context(), which was removing JS scripts from other sphinx extensions/themes on pages where tabs were not used
+
+### Added
+* Note in docs to clarify that include directive can't be used within a code-tab
+
+## 3.4.1 - 2022-07-02
 
 ### Added
 

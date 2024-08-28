@@ -1,3 +1,14 @@
+sphinx-tabs (3.4.4-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release.
+  * Drop Make-the-tests-pass-with-Sphinx-7.1.patch, included in the new
+    release.
+  * Add a new patch to restore tests compatibility with Sphinx 5.
+  * Bump Standards-Version to 4.6.2, no changes needed.
+
+ -- Dmitry Shachnev <mitya57@debian.org>  Mon, 30 Oct 2023 09:12:29 +0300
+
 sphinx-tabs (3.4.1-2) unstable; urgency=medium
 
   * Team upload.
