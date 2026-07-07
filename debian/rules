@@ -4,7 +4,7 @@ export PYBUILD_NAME=sphinx-tabs
 export PYBUILD_TEST_ARGS=-k 'not test_rinohtype_pdf'
 
 %:
-	dh $@ --with python3,sphinxdoc --buildsystem=pybuild
+	dh $@ --with sphinxdoc --buildsystem=pybuild
 
 override_dh_auto_build:
 	python3 -m sphinx -b html -d docs/.build/.doctrees -N docs docs/.build/html

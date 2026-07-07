@@ -16,7 +16,7 @@ setup(
     name="sphinx-tabs",
     version=get_version(),
     description="Tabbed views for Sphinx",
-    long_description=open("README.md").read(),
+    long_description=long_description,
     long_description_content_type="text/markdown",
     author="djungelorm",
     author_email="djungelorm@users.noreply.github.com",
@@ -24,8 +24,8 @@ setup(
     include_package_data=True,
     url="https://github.com/executablebooks/sphinx-tabs",
     license="MIT",
-    python_requires="~=3.7",
-    install_requires=["sphinx", "pygments", "docutils~=0.18.0"],
+    python_requires=">=3.7",
+    install_requires=["sphinx>=1.8", "pygments", "docutils"],
     extras_require={
         "testing": [
             "coverage",
